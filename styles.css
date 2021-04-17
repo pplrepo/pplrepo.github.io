@@ -376,6 +376,23 @@ a.youtube:hover{
 
 }
 
+/*Contact*/
+#blink {
+	background-color: #a1dad1; 
+	padding:2px;
+	border:solid black 3px; 
+	text-decoration:none; 
+	color: black;
+	animation: blinker 1s infinite;
+}
+
+@keyframes blinker {
+  0% {opacity: 0.50;}
+  50% {opacity: 1;background-color:#a4d4cc;}
+  100% {opacity: 0.50;}
+
+}
+
 
 
 /*000000000000000000000000000000000000000000000000000000000000000000000000000000000000*/
@@ -489,7 +506,7 @@ a.youtube:hover{
 	}
 	
 	.shopanimate h1{
-		font-size: 20px;
+		font-size: 15px;
 	}
 }
 
