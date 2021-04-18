@@ -485,13 +485,13 @@ a.youtube:hover{
 
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1400px) {
 	.column2.side2, .column2.middle2 {
 		width: 100%;
 	}
 	
 	#shopimg {
-		width: 400px;
+		width: 350px;
 	}
 }
 
