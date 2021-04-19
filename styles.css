@@ -141,6 +141,18 @@ html, body {
 	padding-bottom: 10px;
 }
 
+/*Home intro and info*/
+#homebox {
+	text-align:left;
+	/*padding: 40px;
+	padding-top: 0px;*/
+	border: solid black 4px;
+	background-color:white;
+	font-size: 50px;
+}
+
+
+
 /*YOUTUBE##############################################################*/
 .youtube {
 	background-color:#a1dad1;
@@ -451,6 +463,7 @@ a.youtube:hover{
 	clear: both;
 }
 
+
 #question {
 	padding: 20px;
 	color: black;
@@ -483,6 +496,41 @@ a.youtube:hover{
 	border: solid black 2px;
 }
 
+/*000000000000000000000000000000000000000000000000000000000000000000000000000000000000*/
+/* Contact Create three unequal columns that floats next to each other */
+.column4 {
+	float: left;
+	padding: 10px;
+}
+
+/* Left and right column */
+.column4.side4 {
+	width: 10%;
+	
+	text-align: center;
+}
+
+/* Middle column */
+.column4.middle4 {
+	width: 40%;
+	text-align: center;
+}
+
+/* Clear floats after the columns */
+.rows4:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#contactform {
+	font-size: 25px;
+	padding: 50px 20px;
+	background-color: #a1dad1;
+	color:black;
+	border: solid black 3px;
+}
+
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 1400px) {
@@ -497,6 +545,12 @@ a.youtube:hover{
 
 @media screen and (max-width: 1200px) {
 	.column3.side3, .column3.middle3 {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.column4.side4, .column4.middle4 {
 		width: 100%;
 	}
 }

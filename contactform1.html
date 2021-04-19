@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<meta charset="UTF-8">
+	
+	<link rel="stylesheet" href="styles.css">
+	<link rel="shortcut icon" type="image/-icon" href="favicon.png">
+	
+	<title>Postpartum Lifestyle</title>
+	
+</head>
+
+<body>
+
+<div id="vessel">
+	<!--############################################################-->
+	<div id="headertop">
+
+		<div class="flex-container-head">
+	
+			<div class="flex-item-left-head">
+				<a href="index.html">
+						<img src="pplifestyle.png" alt="Post Partum Lifestyle Logo" style="width:200px; height:80px;">
+				</a>
+			</div>
+			
+			<div class="flex-item-right-head">
+				<div class="topnav" id="myTopnav">
+				  <a href="shop.html">Shop</a>
+				  <a href="faqs.html">FAQs</a>
+				  <a href="contact.html">Contact</a>
+				  <a href="services.html">Services</a>
+				  <a href="my_story.html">My Story</a>
+				  <a href="about.html">About</a>
+				  <a href="index.html">Home</a>	  
+			</div>
+		
+			<!-- Hides the menu until screen size is small enough -->
+			<div id="test">
+				<div class="navdrop">
+					<a href="javascript:void(0);" class="active" onclick="myFunction()">
+					<img src="menu.png" alt="Menu Icon" id="menubut">
+					</a>
+					<div id="myLinks">
+						<a href="index.html">Home</a>
+						<a href="about.html">About</a>
+						<a href="my_story.html">My Story</a>
+						<a href="services.html">Services</a>
+						<a href="contact.html">Contact</a>
+						<a href="faqs.html">FAQs</a>
+						<a href="shop.html">Shop</a>
+					</div>
+				</div>	
+			</div>
+		</div>
+	
+	</div>
+	
+	<!--###########################################################-->
+	<div id="bodymid" style="padding-bottom:4px;">
+	
+		<div style="display:hidden;height:20px;"></div>
+		
+		<div style="width:100%;text-align:center;">
+			<h1 style="font-size: 35px;"> Contact - General Inquiry </h1>
+			<p>Form may take a few moments to load...</p>
+			<p> Click <a href="contact.html" id="blink">here</a> to return to main Contact page.
+			
+   <iframe
+      id="JotFormIFrame-211077736059156"
+      title="General Inquiry Contact Form"
+      onload="window.parent.scrollTo(0,0)"
+      allowtransparency="true"
+      allowfullscreen="true"
+      allow="geolocation; microphone; camera"
+      src="https://form.jotform.com/211077736059156"
+      frameborder="0"
+      style="
+      min-width: 100%;
+      height:539px;
+      border:none;"
+      scrolling="no"
+    >
+    </iframe>
+    <script type="text/javascript">
+      var ifr = document.getElementById("JotFormIFrame-211077736059156");
+      if (ifr) {
+        var src = ifr.src;
+        var iframeParams = [];
+        if (window.location.href && window.location.href.indexOf("?") > -1) {
+          iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&'));
+        }
+        if (src && src.indexOf("?") > -1) {
+          iframeParams = iframeParams.concat(src.substr(src.indexOf("?") + 1).split("&"));
+          src = src.substr(0, src.indexOf("?"))
+        }
+        iframeParams.push("isIframeEmbed=1");
+        ifr.src = src + "?" + iframeParams.join('&');
+      }
+      window.handleIFrameMessage = function(e) {
+        if (typeof e.data === 'object') { return; }
+        var args = e.data.split(":");
+        if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[(args.length - 1)]); } else { iframe = document.getElementById("JotFormIFrame"); }
+        if (!iframe) { return; }
+        switch (args[0]) {
+          case "scrollIntoView":
+            iframe.scrollIntoView();
+            break;
+          case "setHeight":
+            iframe.style.height = args[1] + "px";
+            break;
+          case "collapseErrorPage":
+            if (iframe.clientHeight > window.innerHeight) {
+              iframe.style.height = window.innerHeight + "px";
+            }
+            break;
+          case "reloadPage":
+            window.location.reload();
+            break;
+          case "loadScript":
+            if( !window.isPermitted(e.origin, ['jotform.com', 'jotform.pro']) ) { break; }
+            var src = args[1];
+            if (args.length > 3) {
+                src = args[1] + ':' + args[2];
+            }
+            var script = document.createElement('script');
+            script.src = src;
+            script.type = 'text/javascript';
+            document.body.appendChild(script);
+            break;
+          case "exitFullscreen":
+            if      (window.document.exitFullscreen)        window.document.exitFullscreen();
+            else if (window.document.mozCancelFullScreen)   window.document.mozCancelFullScreen();
+            else if (window.document.mozCancelFullscreen)   window.document.mozCancelFullScreen();
+            else if (window.document.webkitExitFullscreen)  window.document.webkitExitFullscreen();
+            else if (window.document.msExitFullscreen)      window.document.msExitFullscreen();
+            break;
+        }
+        var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false;
+        if(isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) {
+          var urls = {"docurl":encodeURIComponent(document.URL),"referrer":encodeURIComponent(document.referrer)};
+          iframe.contentWindow.postMessage(JSON.stringify({"type":"urls","value":urls}), "*");
+        }
+      };
+      window.isPermitted = function(originUrl, whitelisted_domains) {
+        var url = document.createElement('a');
+        url.href = originUrl;
+        var hostname = url.hostname;
+        var result = false;
+        if( typeof hostname !== 'undefined' ) {
+          whitelisted_domains.forEach(function(element) {
+              if( hostname.slice((-1 * element.length - 1)) === '.'.concat(element) ||  hostname === element ) {
+                  result = true;
+              }
+          });
+          return result;
+        }
+      }
+      if (window.addEventListener) {
+        window.addEventListener("message", handleIFrameMessage, false);
+      } else if (window.attachEvent) {
+        window.attachEvent("onmessage", handleIFrameMessage);
+      }
+      </script>
+			
+		</div>
+		
+		
+	</div>
+	
+	<!--##############################################################-->
+	<div id="footer">
+		<p>Copyright &#169; 2021 | <a href="https://www.termsfeed.com/live/759eaa17-8844-4477-8943-01ac4b8f8cf2" target="_blank">Terms and Conditions</a> | <a href="https://www.termsfeed.com/live/c8ecd41a-8288-4db2-9b18-aeec90d55f88" target="_blank">Privacy Agreement<a></p>
+	</div>
+	
+</div>
+
+	<!-- Script for menu click button -->
+	<script>
+
+	function myFunction() {
+		var x = document.getElementById("myLinks");
+		
+		if (x.style.display === "block") {
+			x.style.display = "none";
+		}
+		
+		else {
+			x.style.display = "block";
+		}
+	}
+	</script>
+
+</body>
+</html>
