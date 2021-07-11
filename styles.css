@@ -647,6 +647,20 @@ a.youtube:hover{
 	margin-left: 45%;
 }
 
+#resourceForm {
+	background-color:black;
+	border:none;
+	color:white;
+	padding:30px 30px;
+	font-size:20px;
+	cursor: pointer;
+	margin-top:5px;
+	margin: 40px 0px;
+	max-width:500px;
+	width:100%;
+}
+
+
 .smallscreenlogo {
     margin-left: auto;
     margin-right: auto;
