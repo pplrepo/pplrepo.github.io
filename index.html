@@ -23,6 +23,7 @@
     	<a href="index.html" style="border:none;"><img class="logo" src="images/pplifestyle.png" alt="LOGO"></a>
     	<a href="index.html">Home</a>
     	<a href="services.html">Services</a>
+
     	<a href="javascript:void(0);"><button class="dropbtn" onclick="dropNav()">Resources</button></a>
 		<div class="dropdown-content" id="myDropdown">
 			<a href="pregnancy.html">Pregnancy</a>
@@ -30,6 +31,18 @@
 			<a href="postpartum.html">Postpartum Prep</a>
 			<a href="toddlers.html">Toddler's Table</a>
 		</div>
+		
+	<a href="javascript:void(0);"><button class="dropbtn1" onclick="dropNav1()">Topics</button></a>
+
+		
+		<div class="dropdown-content" id="myDropdown1">
+			<a href="BabyBlues.html">Baby Blues</a>
+			<a href="Eczema.html">Eczema</a>
+			<a href="Inflammation.html">Inflammation</a>
+			<a href="Toothache.html">Toothache</a>
+		</div>
+	
+
     	<a href="shop.html">Shop</a>
 	</nav>
 
@@ -48,6 +61,14 @@
 							<a href="postpartum.html">Postpartum Prep</a>
 							<a href="toddlers.html">Toddler's Table</a>
 						</div>
+
+					<a href="javascript:void(0);"onclick="myFuncDrop1()">Topics</a>
+						<div id="resourceDrop1">
+							<a href="pregnancy.html">1</a>
+							<a href="labor.html">2</a>
+							<a href="postpartum.html">3</a>
+							<a href="toddlers.html">4</a>
+						</div>
 					<a href="shop.html">Shop</a>
 				</div>
 			</div>	
@@ -65,7 +86,7 @@
 			</picture>
 			<div class="centered">
 				<a href="contactform2.html" class="consultation-a">
-					<h2>Book A Consultation</h2>
+					<h2>Book a FREE Consultation</h2>
 				</a>
 			</div>
 		</div>	
@@ -89,27 +110,15 @@
 				
 			I am here to help relieve any stress you may have and provide you with as much knowledge and support as needed.<br><br>
 			
-			Click <a href="services.html" id="blink">here</a> to learn more about services offered.<br><br>
-
+			Click <a href="services.html" id="blink">here</a> to learn more about services offered.
+			
 				</p>
- 			</div>
+ 			</div>		
+ 			
  			
 			<div class="column3 side3">
  			</div>
- 		</div>
-
-		<div style="padding: 0px 8px;">
-		   <p style="text-align: center;">			
-		 	Postpartum Lifestyle gives back to our local community!<br><br>
-
-		    Postpartum is the least discussed and supported part of the birthing process.<br><br>
-
-		 	Baby showers prepare for baby. During pregnancy you're focused on preparing for labor and dealing with the pregnancy itself.<br><br>
-		 	We want to to give away postpartum care packages to women and birthers in their 3rd trimester in hopes to provide relief for them.<br><br>
-
-		 	You can help us! Help a mom by donating postpartum essentials items that we will assemble into a care package and deliver to women and birthers in need.<br><br>
-		 	Click <a href="https://www.amazon.com/registries/custom/2SBYDCUMEPY6Z/guest-view" id="blink">here</a> to help a mom.<br><br> 
-		</div>	
+ 		</div>		
 
 	</div>
 	
@@ -155,6 +164,26 @@ window.onclick = function(e) {
 
 
 
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function dropNav1() {
+  document.getElementById("myDropdown1").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn1')) {
+  var myDropdown1 = document.getElementById("myDropdown1");
+    if (myDropdown1.classList.contains('show')) {
+      myDropdown1.classList.remove('show');
+    }
+  }
+}
+</script>
+
+
+
 	<!-- Script for menu click button -->
 <script>
 	function myFunction() {
@@ -173,6 +202,20 @@ window.onclick = function(e) {
 <script>
 	function myFuncDrop() {
 		var x = document.getElementById("resourceDrop");
+		
+		if (x.style.display === "block") {
+			x.style.display = "none";
+		}
+		
+		else {
+			x.style.display = "block";
+		}
+	}
+</script>
+
+<script>
+	function myFuncDrop1() {
+		var x = document.getElementById("resourceDrop1");
 		
 		if (x.style.display === "block") {
 			x.style.display = "none";
