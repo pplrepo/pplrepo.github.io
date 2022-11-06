@@ -211,6 +211,48 @@ a.youtube:hover{
 	border-radius: 45px; 
 }
 
+/* BookHireCreate Section ------------------------------------------------------------------------*/
+.BookHireCreate {
+	width: 100%;
+	background-color: #ebedef;
+	display: grid;
+	column-gap: 200px;
+	grid-template-columns: auto auto auto;
+	padding: 20px;
+	grid-gap: 200px;
+}
+
+.BookHireCreate h4 {
+	font-size: 35px;
+	color: #008037;
+}
+
+.BookHireCreate button {
+	font-size:16px;
+	padding: 15px 20px;
+	background-color: white;
+	border: none;
+	border-radius: 15px;
+}
+
+.BookHireCreate button:hover {
+	background-color: lightgray;
+}
+
+.BookHireCreate div {
+	padding-bottom: 30px;
+}
+
+#BHCdoula {
+	width:100%; 
+	background-color:white; 
+	padding:40px 150px; 
+	margin-top:-10px;
+}
+
+#BHCdoula p {
+	width: 50%;
+}
 
 /***********************************SERVICE****************************************/
 .rowservice {
@@ -571,6 +613,7 @@ a.youtube:hover{
 		flex: 50%;
 		max-width: 50%;
 	}
+
 }
 
 /* Responsive Layout 2 column--*/
@@ -835,15 +878,29 @@ a.youtube:hover{
 }
 
 
-@media (max-width: 1000px) {          /*Switch to mobile orientation*/
+@media (max-width: 1000px) { /*Switch to mobile orientation*/
 	.logo {
 		display: none;
 	}
-	
-	.navigation-bar{
+
+	.navigation-bar {
 		display: none;
 		height: 0px;
 		width: 0px;
+	}
+
+	.BookHireCreate {
+		column-gap: 10px;
+		grid-template-columns: auto auto auto;
+	}
+
+	#BHCdoula {
+		width: 100%;
+		padding: 40px 30px;
+	}
+
+	#BHCdoula p {
+		width: 100%;
 	}
 }
 
