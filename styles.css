@@ -916,3 +916,20 @@ a.youtube:hover{
 	}
 
 }
+/*ADD TO CSS*/
+#dirText{
+    word-wrap: break-word;
+}
+
+/*ADD TO CSS*/
+@media screen and (max-width: 800px) {
+    #dirText {
+        font-size: 14px;
+    }
+}
+/*ADD TO CSS*/
+@media screen and (max-width: 600px) {
+    #dirText {
+        font-size: 12px;
+    }
+}

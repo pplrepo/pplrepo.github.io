@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<meta charset="UTF-8">
+	
+	<link rel="stylesheet" href="styles.css">
+	<link rel="shortcut icon" type="image/-icon" href="images/favicon.png">
+	
+	<title>Postpartum Lifestyle</title>
+    <script type="text/javascript" src="list.js"></script>
+	
+</head>
+
+<body>
+
+<div id="vessel">
+	<!--############################################################-->
+	<div id="headertop">
+
+	<nav class="navigation-bar">
+    	<a href="index.html" style="border:none;"><img class="logo" src="images/pplifestyle.png" alt="LOGO"></a>
+    	<a href="index.html">Home</a>
+    	<a href="services.html">Services</a>
+    	<a href="javascript:void(0);"><button class="dropbtn" onclick="dropNav()">Resources</button></a>
+		<div class="dropdown-content" id="myDropdown">
+			<a href="pregnancy.html">Pregnancy</a>
+			<a href="labor.html">Labor/Birth Prep</a>
+			<a href="postpartum.html">Postpartum Prep</a>
+			<a href="toddlers.html">Toddler's Table</a>
+		</div>
+    	<a href="shop.html">Shop</a>
+	</nav>
+
+		<!-- Hides the menu until screen size is small enough -->
+		<a href="index.html"><img class="smallscreenlogo" src="images/pplifestyle.png" alt="LOGO"></a>
+		<div id="test">
+			<div class="navdrop">
+				<a href="javascript:void(0);" class="active" onclick="myFunction()"><img src="images/menu.png" alt="Menu Icon" id="menubut"></a>
+				<div id="myLinks">
+					<a href="index.html">Home</a>
+					<a href="services.html">Services</a>
+					<a href="javascript:void(0);"onclick="myFuncDrop()">Resources</a>
+						<div id="resourceDrop">
+							<a href="pregnancy.html">Pregnancy</a>
+							<a href="labor.html">Labor/Birth Prep</a>
+							<a href="postpartum.html">Postpartum Prep</a>
+							<a href="toddlers.html">Toddler's Table</a>
+						</div>
+					<a href="shop.html">Shop</a>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<!--#####################################################################################################-->
+	
+	<div id="bodymid">
+        <h3>Directory</h3>
+
+        <label for="search">Filter By Location: </label>
+		<input type="text" id="dirSearch" oninput="handleChange()" placeholder="City/State/Zip"><br><br>
+
+        <div id="directory">
+		
+        </div>
+
+
+	</div>
+	
+	<!--##############################################################-->
+	<div id="footer">
+		<p><a href="contact.html"><b>Contact</b></a></p>
+		<p><a href="about.html"><b>About</b></a></p>
+		<p><a href="my_story.html"><b>My Story</b></a></p>
+		<p><a href="faqs.html"><b>Frequently Asked Questions</b></a></p>
+		<p style="border-top:solid black 2px;padding-top:20px;"><a href="https://www.termsfeed.com/live/759eaa17-8844-4477-8943-01ac4b8f8cf2" target="_blank">Terms of Use</a> | <a href="https://www.termsfeed.com/live/c8ecd41a-8288-4db2-9b18-aeec90d55f88" target="_blank">Privacy Policy<a></p>
+		<p>Copyright &#169; 2021 </p>
+	</div>
+	
+</div>
+
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function dropNav() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script>
+
+
+
+	<!-- Script for menu click button -->
+<script>
+	function myFunction() {
+		var x = document.getElementById("myLinks");
+		
+		if (x.style.display === "block") {
+			x.style.display = "none";
+		}
+		
+		else {
+			x.style.display = "block";
+		}
+	}
+</script>
+
+<script>
+	function myFuncDrop() {
+		var x = document.getElementById("resourceDrop");
+		
+		if (x.style.display === "block") {
+			x.style.display = "none";
+		}
+		
+		else {
+			x.style.display = "block";
+		}
+	}
+</script>
+
+<!-- Script for Services Display click button 1-->
+	<script>
+	function serviceFunction1() {
+		var y = document.getElementById("myService1");
+		
+		if (y.style.display === "block") {
+			y.style.display = "none";
+		}
+		
+		else {
+			y.style.display = "block";
+		}
+	}
+	</script>
+
+	<!-- Script for Services Display click button 2-->
+	<script>
+	function serviceFunction2() {
+		var y = document.getElementById("myService2");
+		
+		if (y.style.display === "block") {
+			y.style.display = "none";
+		}
+		
+		else {
+			y.style.display = "block";
+		}
+	}
+	</script>
+
+	<!-- Script for Services Display click button 3-->
+	<script>
+	function serviceFunction3() {
+		var y = document.getElementById("myService3");
+		
+		if (y.style.display === "block") {
+			y.style.display = "none";
+		}
+		
+		else {
+			y.style.display = "block";
+		}
+	}
+	</script>
+	
+	<!-- Script for Services Display click button 4-->
+	<script>
+	function serviceFunction4() {
+		var y = document.getElementById("myService4");
+		
+		if (y.style.display === "block") {
+			y.style.display = "none";
+		}
+		
+		else {
+			y.style.display = "block";
+		}
+	}
+	</script>
+	
+	<!-- Script for Services Display click button 5-->
+	<script>
+	function serviceFunction5() {
+		var y = document.getElementById("myService5");
+		
+		if (y.style.display === "block") {
+			y.style.display = "none";
+		}
+		
+		else {
+			y.style.display = "block";
+		}
+	}
+	</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QS5SQD3PVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QS5SQD3PVJ');
+</script>
+
+<script>
+	document.getElementById("dirSearch").value = "";
+</script>
+
+<script>
+	function searchDirectory(){
+		for (const key of Object.keys(listDictionary)){			
+			// Create a new div element
+			var div = document.createElement("div");
+			div.className = 'card';
+			div.setAttribute("style","display: grid;grid-template-columns: 25% 60% 15%;gap: 20px; border: solid black 2px;margin-bottom: 5px;background-color:white; width:90%; margin: 5px auto;");
+			
+
+			var cardData = document.createElement("p");
+			cardData.id = "dirText";
+			cardData.innerHTML = 
+				"<span style='font-weight: bold;text-transform:uppercase;text-decoration-line: underline;'>" + listDictionary[key]["name"] + " </span>"
+				+ "<br>" + "<span style='font-weight: bold;'> " + listDictionary[key]["title"] + " </span>"
+				+ "<br>" + "<span style='font-style: italic;'> " + listDictionary[key]["business"] + " </span>"
+				+ "<br>"+"Birth Rate: " + listDictionary[key]["birthrate"] 
+				+ "<br>" + "Post-partum Rate: " + listDictionary[key]["postpartumrate"]
+				+ "<br>" + "Contact: " + listDictionary[key]["phone"]
+				+ "<br>" + "Website: " + "<span> " + "<a href='" + listDictionary[key]["website"] + "' target='_blank' style='text-decoration:underline;color:black;'>"+ listDictionary[key]["website"] +"</a>" + " </span>"
+				+ "<br>" + "Located: " + listDictionary[key]["location"] + " " + listDictionary[key]["zip"];
+
+			var picture = document.createElement("img");
+			picture.setAttribute("style","width: 100%;max-width: 200px;max-height: 200px;padding: 10px;");
+			picture.src = listDictionary[key]["pic"];
+			picture.alt = "No Image";
+			picture.id = "dirPic";
+
+			var emptyColumn = document.createElement("div");
+
+			div.appendChild(picture);
+			div.appendChild(cardData);
+			div.appendChild(emptyColumn);
+
+			let convert2up = new String(document.getElementById("dirSearch").value);
+			convert2up = convert2up.toUpperCase();
+			//for blank search, show all, otherwise search dictionary
+			if (document.getElementById("dirSearch").value == ""){
+				document.getElementById("directory").appendChild(div);
+			}
+			else {				
+				if (listDictionary[key]["location"].includes(document.getElementById("dirSearch").value)
+					|| listDictionary[key]["location"].includes(convert2up)
+					|| listDictionary[key]["zip"].includes(document.getElementById("dirSearch").value)){
+					document.getElementById("directory").appendChild(div);
+				}
+			}
+		};
+		//on empty searchresults
+		if (document.getElementById("directory").innerHTML == ""){
+			var div = document.createElement("div");
+			div.innerHTML = "No result match search";
+			document.getElementById("directory").appendChild(div);
+		}
+	}
+</script>
+
+<!--ADD ENTIRE SCRIPT-->
+<script>
+	//if text value changes, clear directory and re-load filtered
+	function handleChange(){
+		document.getElementById("directory").innerHTML = "";
+		searchDirectory();
+	}
+</script> 
+
+<!--ADD ENTIRE SCRIPT-->
+<script>
+	//show all on initial load
+	searchDirectory();
+</script>
+
+</body>
+</html>
