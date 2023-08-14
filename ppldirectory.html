@@ -61,7 +61,7 @@
 
         <label for="search">Filter By Location: </label>
 		<input type="text" id="dirSearch" oninput="handleChange()" placeholder="City/State/Zip"><br><br>
-
+        <p> Doulas: If you need information added or updated to your profile please email info@postpartumlifestyle.com.</p>
         <div id="directory">
 		
         </div>
@@ -242,7 +242,7 @@ window.onclick = function(e) {
 				+ "<br>" + "Located: " + listDictionary[key]["location"] + " " + listDictionary[key]["zip"];
 
 			var picture = document.createElement("img");
-			picture.setAttribute("style","width: 100%;max-width: 300px;max-height: 300px;padding: 10px;");
+			picture.setAttribute("style","width: 100%;max-width: 200px;max-height: 200px;padding: 10px;");
 			picture.src = listDictionary[key]["pic"];
 			picture.alt = "No Image";
 			picture.id = "dirPic";
