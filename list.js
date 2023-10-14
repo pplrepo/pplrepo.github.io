@@ -21,6 +21,6 @@ let listDictionary =
     "O": {name: "", business: "Doula for Doula, LLC", title: "Doula", website: "n/a", location: "Charlotte, NC", phone: "prdoula@gmail.com", birthrate: "contact for details", postpartumrate: "contact for details", zip: "", pic: "images/program.png",},
     "P": {name: "", business: "Present Gift Doula", title: "Birth Doula", website: "https://www.brand.page/presentgiftdoula.com", location: "Charlotte, NC", phone: "via website", birthrate: "contact for details", postpartumrate: "contact for details", zip: "", pic: "images/program.png",},
     "Q": {name: "", business: "Q_City", title: "Doula", website: "https://www.qcitydoula.com", location: "Charlotte, NC", phone: "via website", birthrate: "contact for details", postpartumrate: "contact for details", zip: "", pic: "images/program.png",},
-    "R": {name: "", business: "Doula Services", title: "Full Spectrum Doula", website: "https://www.jajuanamoonie.squarespace.com", location: "Charlotte, NC", phone: "via website", birthrate: "contact for details", postpartumrate: "contact for details", zip: "", pic: "images/program.png",},
+    "R": {name: "Jajuana Moonie", business: "Doula Services", title: "Full Spectrum Doula", website: "https://www.jajuanamoonie.squarespace.com", location: "Charlotte, NC", phone: "via website", birthrate: "contact for details", postpartumrate: "contact for details", zip: "", pic: "images/program.png",},
 
 }
