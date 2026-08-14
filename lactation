@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IBCLE Recall</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fb;
+      margin: 0;
+      padding: 20px;
+      color: #1f2937;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #6b7280;
+      margin-bottom: 25px;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    button, select {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button {
+      background: white;
+    }
+
+    button:hover {
+      background: #eef2f7;
+    }
+
+    .flashcard {
+      background: white;
+      border-radius: 16px;
+      padding: 40px 30px;
+      min-height: 260px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .category {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
+    .card-text {
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    .hint {
+      font-size: 14px;
+      margin-top: 20px;
+      color: #6b7280;
+    }
+
+    .progress {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    .rating-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .correct {
+      background: #dcfce7;
+    }
+
+    .incorrect {
+      background: #fee2e2;
+    }
+
+    .import-box {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 25px;
+      box-shadow: 0 3px 10px rgba(0,0,0,.06);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 160px;
+      padding: 12px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: Arial, sans-serif;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: white;
+      width: 100%;
+      max-width: 600px;
+      padding: 25px;
+      border-radius: 14px;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>IBCLE Recall</h1>
+  <div class="subtitle">Interactive Lactation Study Deck</div>
+
+  <div class="toolbar">
+    <button onclick="shuffleCards()">Shuffle</button>
+    <button onclick="showIncorrectOnly()">Incorrect Only</button>
+    <button onclick="showAllCards()">All Cards</button>
+    <button onclick="openEditor()">Edit Card</button>
+    <button onclick="deleteCard()">Delete Card</button>
+
+    <select id="categoryFilter" onchange="filterCategory()">
+      <option value="all">All Categories</option>
+    </select>
+  </div>
+
+  <div class="flashcard" onclick="flipCard()">
+    <div id="category" class="category"></div>
+    <div id="cardText" class="card-text"></div>
+    <div id="hint" class="hint"></div>
+  </div>
+
+  <div class="progress" id="progress"></div>
+
+  <div class="toolbar">
+    <button onclick="previousCard()">Previous</button>
+    <button onclick="nextCard()">Next</button>
+  </div>
+
+  <div class="rating-buttons">
+    <button class="incorrect" onclick="markIncorrect()">Incorrect</button>
+    <button class="correct" onclick="markCorrect()">Correct</button>
+  </div>
+
+  <div class="import-box">
+    <h3>Add Flashcards</h3>
+
+    <p>
+      Paste one card per line using:
+      <br>
+      <strong>Question | Answer | Hint | Category</strong>
+    </p>
+
+    <textarea id="bulkInput"
+      placeholder="What is the primary carbohydrate in human milk? | Lactose | | Carbohydrates"></textarea>
+
+    <br><br>
+
+    <button onclick="addCards()">Add Cards</button>
+  </div>
+
+</div>
+
+
+<div id="editModal" class="modal hidden">
+
+  <div class="modal-content">
+
+    <h2>Edit Card</h2>
+
+    <input id="editQuestion" placeholder="Question">
+
+    <textarea id="editAnswer" placeholder="Answer"></textarea>
+
+    <input id="editHint" placeholder="Hint">
+
+    <input id="editCategory" placeholder="Category">
+
+    <button onclick="saveEdit()">Save Changes</button>
+    <button onclick="closeEditor()">Cancel</button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+let cards = JSON.parse(localStorage.getItem("ibcleCards")) || [];
+
+let filteredCards = cards;
+
+let currentIndex = 0;
+
+let showingAnswer = false;
+
+
+function saveCards() {
+  localStorage.setItem("ibcleCards", JSON.stringify(cards));
+}
+
+
+function displayCard() {
+
+  if (filteredCards.length === 0) {
+
+    document.getElementById("cardText").innerText =
+      "Add some flashcards below to begin.";
+
+    document.getElementById("category").innerText = "";
+
+    document.getElementById("hint").innerText = "";
+
+    document.getElementById("progress").innerText = "0 cards";
+
+    return;
+  }
+
+  if (currentIndex >= filteredCards.length) {
+    currentIndex = 0;
+  }
+
+  const card = filteredCards[currentIndex];
+
+  document.getElementById("category").innerText =
+    card.category || "Uncategorized";
+
+  document.getElementById("cardText").innerText =
+    showingAnswer ? card.answer : card.question;
+
+  document.getElementById("hint").innerText =
+    !showingAnswer && card.hint
+      ? "Hint: " + card.hint
+      : "";
+
+  document.getElementById("progress").innerText =
+    `${currentIndex + 1} of ${filteredCards.length}`;
+
+}
+
+
+function flipCard() {
+
+  if (!filteredCards.length) return;
+
+  showingAnswer = !showingAnswer;
+
+  displayCard();
+
+}
+
+
+function nextCard() {
+
+  if (!filteredCards.length) return;
+
+  currentIndex =
+    (currentIndex + 1) % filteredCards.length;
+
+  showingAnswer = false;
+
+  displayCard();
+
+}
+
+
+function previousCard() {
+
+  if (!filteredCards.length) return;
+
+  currentIndex =
+    (currentIndex - 1 + filteredCards.length)
+    % filteredCards.length;
+
+  showingAnswer = false;
+
+  displayCard();
+
+}
+
+
+function shuffleCards() {
+
+  for (let i = filteredCards.length - 1; i > 0; i--) {
+
+    const j =
+      Math.floor(Math.random() * (i + 1));
+
+    [filteredCards[i], filteredCards[j]] =
+      [filteredCards[j], filteredCards[i]];
+
+  }
+
+  currentIndex = 0;
+
+  showingAnswer = false;
+
+  displayCard();
+
+}
+
+
+function markCorrect() {
+
+  if (!filteredCards.length) return;
+
+  filteredCards[currentIndex].status = "correct";
+
+  saveCards();
+
+  nextCard();
+
+}
+
+
+function markIncorrect() {
+
+  if (!filteredCards.length) return;
+
+  filteredCards[currentIndex].status = "incorrect";
+
+  saveCards();
+
+  nextCard();
+
+}
+
+
+function showIncorrectOnly() {
+
+  filteredCards =
+    cards.filter(card => card.status === "incorrect");
+
+  currentIndex = 0;
+
+  showingAnswer = false;
+
+  displayCard();
+
+}
+
+
+function showAllCards() {
+
+  filteredCards = cards;
+
+  currentIndex = 0;
+
+  showingAnswer = false;
+
+  displayCard();
+
+}
+
+
+function addCards() {
+
+  const input =
+    document.getElementById("bulkInput").value.trim();
+
+  if (!input) return;
+
+  const lines = input.split("\n");
+
+  lines.forEach(line => {
+
+    const parts = line.split("|");
+
+    if (parts.length >= 2) {
+
+      cards.push({
+
+        question: parts[0].trim(),
+
+        answer: parts[1].trim(),
+
+        hint:
+          parts[2] ? parts[2].trim() : "",
+
+        category:
+          parts[3] ? parts[3].trim() : "General",
+
+        status: ""
+
+      });
+
+    }
+
+  });
+
+  saveCards();
+
+  filteredCards = cards;
+
+  document.getElementById("bulkInput").value = "";
+
+  updateCategories();
+
+  currentIndex = cards.length - 1;
+
+  showingAnswer = false;
+
+  displayCard();
+
+}
+
+
+function updateCategories() {
+
+  const select =
+    document.getElementById("categoryFilter");
+
+  const categories =
+    [...new Set(cards.map(card =>
+      card.category || "General"))];
+
+  select.innerHTML =
+    '<option value="all">All Categories</option>';
+
+  categories.forEach(category => {
+
+    const option =
+      document.createElement("option");
+
+    option.value = category;
+
+    option.textContent = category;
+
+    select.appendChild(option);
+
+  });
+
+}
+
+
+function filterCategory() {
+
+  const category =
+    document.getElementById("categoryFilter").value;
+
+  filteredCards =
+    category === "all"
+      ? cards
+      : cards.filter(card =>
+          card.category === category);
+
+  currentIndex = 0;
+
+  showingAnswer = false;
+
+  displayCard();
+
+}
+
+
+function openEditor() {
+
+  if (!filteredCards.length) return;
+
+  const card =
+    filteredCards[currentIndex];
+
+  document.getElementById("editQuestion").value =
+    card.question;
+
+  document.getElementById("editAnswer").value =
+    card.answer;
+
+  document.getElementById("editHint").value =
+    card.hint || "";
+
+  document.getElementById("editCategory").value =
+    card.category || "";
+
+  document.getElementById("editModal")
+    .classList.remove("hidden");
+
+}
+
+
+function closeEditor() {
+
+  document.getElementById("editModal")
+    .classList.add("hidden");
+
+}
+
+
+function saveEdit() {
+
+  if (!filteredCards.length) return;
+
+  const card =
+    filteredCards[currentIndex];
+
+  card.question =
+    document.getElementById("editQuestion").value.trim();
+
+  card.answer =
+    document.getElementById("editAnswer").value.trim();
+
+  card.hint =
+    document.getElementById("editHint").value.trim();
+
+  card.category =
+    document.getElementById("editCategory").value.trim();
+
+  saveCards();
+
+  updateCategories();
+
+  closeEditor();
+
+  showingAnswer = false;
+
+  displayCard();
+
+}
+
+
+function deleteCard() {
+
+  if (!filteredCards.length) return;
+
+  const card =
+    filteredCards[currentIndex];
+
+  const index =
+    cards.indexOf(card);
+
+  if (index !== -1) {
+    cards.splice(index, 1);
+  }
+
+  saveCards();
+
+  filteredCards = cards;
+
+  currentIndex = 0;
+
+  updateCategories();
+
+  displayCard();
+
+}
+
+
+updateCategories();
+
+displayCard();
+
+</script>
+
+</body>
+</html>
